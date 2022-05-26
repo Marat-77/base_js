@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Урок 1. Основы языка JavaScript</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="main">
+    <div class="task">
+      <h1>Базовый курс JavaScript</h1>
+      <h2>Урок 1. Основы языка JavaScript</h2>
+      <h3>Практическое задание</h3>
+      <p>1. Задать температуру в градусах по Цельсию.<br>
+      Вывести в <b>alert</b> соответствующую температуру в градусах по Фаренгейту.<br>
+      Подсказка: расчет идет по формуле <b>Tf = (9 / 5) * Tc + 32</b>,<br>
+      где <b>Tf</b> — температура по Фаренгейту, <b>Tc</b> — по Цельсию.</p>
+      <p><u>Решение:</u></p>
+      <pre>
+        <code>
+          // degreeCelsius - переменная со значением температуры в градусах Цельсия
+          let degreeCelsius = 20.3255;
+          // degreeCelsius - переменная со значением температуры в градусах по Фаренгейту.
+          // значение округляется до 1 знака после запятой
+          let degreeFahrenheit = ((9 / 5) * degreeCelsius + 32).toFixed(1);
+          alert(`Комнатная температура: ${degreeFahrenheit} градусов по шкале Фаренгейта`);
+        </code>
+      </pre>
+
+      <p>2. Объявить две переменные: <b>admin</b> и <b>name</b>. Записать в <b>name</b> строку "Василий";<br>
+      Скопировать значение из <b>name</b> в <b>admin</b>. Вывести <b>admin</b> (должно вывестись «Василий»).</p>
+      <p><u>Решение:</u></p>
+      <pre>
+        <code>
+          let name = 'Василий';
+          let admin = name;
+          alert(admin);
+        </code>
+      </pre>
+
+      <p>3. Чему будет равно JS-выражение `1000 + "108"?`</p>
+      <p><u>Решение:</u></p>
+      <p><code>'1000108'</code> так как при сложении строки (`'108'`) и числа конкатенация имеет приоритет над сложением, и поэтому выполняется конкатенация строк 1000 и 108.</p>
+      <p>4. Самостоятельно разобраться с атрибутами тега script (async и defer).</p>
+      <p><u>Решение:</u></p>
+      <p>Атрибуты <b>async</b> и <b>defer</b> применяются для контролируемой загрузки скрипта. <u>Применять только с атрибутом <b>src</b>!</u></p>
+      <p>При наличии в теге <b>script</b> атрибута <b>async</b> скрипт выполняется асинхронно по мере загрузки кода страницы.</p>
+      <p>Если указан атрибут <b>defer</b>, то скрипт выполняется после загрузки страницы.</p>
+      <p>Если указаны оба атрибута, то <b>async</b> имеет приоритет над <b>defer</b>.</p>
+    </div>
+  </div>
+  <!-- JavaScript -->
+  <script type="text/javascript" src="script.js" async defer></script>
+</body>
+</html>
