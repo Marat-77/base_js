@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Урок 2. Основные операторы JavaScript</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="main">
+    <div class="task">
+      <h1 class="right_header">Базовый курс JavaScript</h1>
+      <h2 class="center_header">Урок 2. Основные операторы JavaScript</h2>
+      <h3>Практическое задание</h3>
+      <p>1. Почему код дает именно такие результаты?</p>
+      <pre class="pre_code"><code class="language-js">
+          var a = 1, b = 1, c, d;
+          c = ++a; alert(c); // 2
+          d = b++; alert(d); // 1
+          c = (2 + ++a); alert(c); // 5
+          d = (2 + b++); alert(d); // 4
+          alert(a); // 3
+          alert(b); // 3
+        </code></pre>
+      <p><u>Решение:</u></p>
+      <pre class="pre_code"><code class="language-js">
+          c = ++a; alert(c);
+          // 2
+        </code></pre>
+      <p>
+        Так как в данном случае префиксная форма инкремента (преинкремент / pre increment), которая работает по аналогии с&nbsp;кодом:
+      </p>
+      <pre class="pre_code"><code class="language-js">
+          a = a + 1;  // 2
+          c = a;      // 2
+        </code></pre>
+      <pre class="pre_code"><code class="language-js">
+          d = b++; alert(d);
+          // 1
+        </code></pre>
+      <p>
+        Так как в данном случае постфиксная форма инкремента (постинкремент / post increment), которая работает по аналогии с&nbsp;кодом:
+      </p>
+      <pre class="pre_code"><code class="language-js">
+          d = a;      // 1
+          b = b + 1;  // 2
+        </code></pre>
+      <p>
+        так как <span class="language-js">&nbsp;a = 2&nbsp;</span> (после операции <span class="language-js">&nbsp;c = ++a;&nbsp;</span>), то <span class="language-js">&nbsp;2 + ++a&nbsp;</span> равнозначно: <span class="language-js">&nbsp;2 + (a + 1)&nbsp;</span>, поэтому результат <span class="language-js">&nbsp;(2 + 2 +1) = 5&nbsp;</span>
+      </p>
+      <pre class="pre_code"><code class="language-js">
+          c = (2 + ++a); alert(c); // 5
+        </code></pre>
+      <p>
+        так как <span class="language-js">&nbsp;b = 2&nbsp;</span> (после операции <span class="language-js">&nbsp;d = b++;&nbsp;</span>), то <span class="language-js">&nbsp;2 + b++&nbsp;</span> равнозначно: <span class="language-js">&nbsp;2 + 2&nbsp;</span>, поэтому результат <span class="language-js">&nbsp;d = (2 + b++) = (2 + 2) = 4&nbsp;</span>, а&nbsp;потом <b>b</b> увеличивается на 1.
+      </p>
+      <pre class="pre_code"><code class="language-js">
+          // код решения
+        </code></pre>
+      <p>&ndash; так как в процессе выполнения предыдущих операций переменная <b>a</b> два раза увеличивается на 1 с помощью преинкремента, а переменная <b>b</b> два раза увеличивается на 1 с помощью постинкремента.</p>
+      <hr>
+      <p>2. Чему будет равен <b>x</b>?</p>
+      <pre class="pre_code"><code class="language-js">
+          var a = 2;
+          var x = 1 + (a *= 2);
+        </code></pre>
+      <p>Решение:</p>
+      <pre class="pre_code"><code class="language-js">
+          a = a * 2; // 2 * 2 = 4
+          x = 1 + a; // 1 + 4 = 5
+        </code></pre>
+
+      <hr>
+      <p>3. Объявить две целочисленные переменные — <b>a</b> и <b>b</b> и задать им произвольные начальные значения. Затем написать скрипт, который работает по следующему принципу:</p>
+      <ul>
+        <li>если <b>a</b> и <b>b</b> положительные, вывести их разность;</li>
+        <li>если <b>a</b> и <b>b</b> отрицательные, вывести их произведение;</li>
+        <li>если <b>a</b> и <b>b</b> разных знаков, вывести их сумму;</li>
+      </ul>
+      <u>Ноль можно считать положительным числом.</u>
+      <p><u>Решение:</u></p>
+      <pre class="pre_code"><code class="language-js">
+        let a;
+        let b;
+
+        function calculation( a, b ){
+          if ( a >=0 && b >=0 ) {
+            return  a - b;
+          } else if (a <0 && b <0) {
+            return a * b;
+          } else if (a <0 || b >=0 ) {
+            return a + b;
+          }
+        }
+
+        a = 5;
+        b = 7;
+        console.log(`Входные данные: a = ${a}, b = ${b}`);
+        alert(`Входные данные: a = ${a}, b = ${b}`);
+        console.log(`Результат: ${calculation(a, b)}`);
+        alert(`Результат: ${calculation(a, b)}`);
+
+        a = -3;
+        b = -6;
+        console.log(`Входные данные: a = ${a}, b = ${b}`);
+        alert(`Входные данные: a = ${a}, b = ${b}`);
+        console.log(`Результат: ${calculation(a, b)}`);
+        alert(`Результат: ${calculation(a, b)}`);
+
+        a = -3;
+        b = 4;
+        console.log(`Входные данные: a = ${a}, b = ${b}`);
+        alert(`Входные данные: a = ${a}, b = ${b}`);
+        console.log(`Результат: ${calculation(a, b)}`);
+        alert(`Результат: ${calculation(a, b)}`);
+        </code></pre>
+
+      <hr>
+      <p>4. Присвоить переменной <b>a</b> значение в промежутке [0..15]. С помощью оператора <b>switch</b> организовать вывод чисел от <b>a</b> до 15.</p>
+      <p><u>Решение:</u></p>
+      <pre class="pre_code"><code class="language-js">
+        function printList() {
+          let a = Math.floor(Math.random() * 15);
+          console.log(`a = ${a}`);
+          switch (a){
+              case (0):
+                  console.log(0)
+                  ++a
+              case (1):
+                  console.log(1)
+                  ++a
+              case (2):
+                  console.log(2)
+                  ++a
+              case (3):
+                  console.log(3)
+                  ++a
+              case (4):
+                  console.log(4)
+                  ++a
+              case (5):
+                  console.log(5)
+                  ++a
+              case (6):
+                  console.log(6)
+                  ++a
+              case (7):
+                  console.log(7)
+                  ++a
+              case (8):
+                  console.log(8)
+                  ++a
+              case (9):
+                  console.log(9)
+                  ++a
+              case (10):
+                  console.log(10)
+                  ++a
+              case (11):
+                  console.log(11)
+                  ++a
+              case (12):
+                  console.log(12)
+                  ++a
+              case (13):
+                  console.log(13)
+                  ++a
+              case (14):
+                  console.log(14)
+                  ++a
+              case (15):
+                  console.log(15)
+                  ++a
+          }
+        }
+
+        printList();
+      </code></pre>
+
+      <hr>
+
+      <p>5. Реализовать четыре основные арифметические операции в виде функций с двумя параметрами. Обязательно использовать оператор <b>return</b>.</p>
+      <p><u>Решение:</u></p>
+      <pre class="pre_code"><code class="language-js">
+        function mySum(x, y) {
+          return x + y;
+        }
+
+        function myDiff(x, y) {
+          return x - y;
+        }
+
+        function myMult(x, y) {
+          return x * y;
+        }
+
+        function myDiv(x, y) {
+          if ( y == 0 ) {
+            return 'error: на ноль делить нельзя';
+          }else {
+            return x / y;
+          }
+        }
+
+        let a = 5;
+        let b = 7;
+
+        console.log(`a = ${a}, b = ${b}`);
+        console.log(`a + b = ${mySum(a, b)}`);
+        console.log(`a - b = ${myDiff(a, b)}`);
+        console.log(`a * b = ${myMult(a, b)}`);
+        console.log(`a / b = ${myDiv(a, b)}`);
+
+        console.log(`a / 0 = ${myDiv(a, 0)}`);
+      </code></pre>
+
+      <hr>
+      <p>6. Реализовать функцию с тремя параметрами: <b>function mathOperation(arg1, arg2, operation)</b>, где <b>arg1</b>, <b>arg2</b> &ndash; значения аргументов, operation &ndash; строка с названием операции. В зависимости от переданного значения выполнить одну из арифметических операций (использовать функции из пункта 5) и вернуть полученное значение (применить <b>switch</b>).</p>
+      <p><u>Решение:</u></p>
+      <pre class="pre_code"><code class="language-js">
+        function mathOperation(arg1, arg2, operation) {
+          switch (operation) {
+            case '+':
+              return mySum(arg1, arg2);
+            case '-':
+              return myDiff(arg1, arg2);
+            case '*':
+              return myMult(arg1, arg2);
+            case '/':
+              return myDiv(arg1, arg2);
+            default:
+              return 'error: неизвестное действие'
+          }
+        }
+
+        console.log(`a + b = ${mathOperation(a, b, '+')}`);
+        console.log(`a - b = ${mathOperation(a, b, '-')}`);
+        console.log(`a * b = ${mathOperation(a, b, '*')}`);
+        console.log(`a / b = ${mathOperation(a, b, '/')}`);
+        console.log(`a / 0 = ${mathOperation(a, 0, '/')}`);
+
+        console.log(`a r b = ${mathOperation(a, b, 'r')}`);
+      </code></pre>
+
+      <hr>
+
+      <p>7. <b>*</b> Сравнить <b>null</b> и <b>0</b>. Объяснить результат</p>
+      <p><u>Решение:</u></p>
+      <pre class="pre_code"><code class="language-js">
+        console.log(`0 > null: ${0 > null}`);  // false
+        console.log(`0 < null: ${0 < null}`);  // false
+      </code></pre>
+
+      <p>сранение <span class="language-js">&nbsp;0 > nul (0 < null, null > 0, null < 0)&nbsp;</span> в JS происходит по <b>Алгоритму сравнения абстрактного отношения</b></p>
+      (<a href="https://262.ecma-international.org/12.0/#sec-abstract-relational-comparison">7.2.13 Abstract Relational Comparison</a>)
+      <!-- 7.2.13 Abstract Relational Comparison -->
+      <div class="quote_ecma">
+        <p class="quote_ecma_p">7.2.13 Abstract Relational Comparison</p>
+        <img class="img_ecma" src="ecma_7_2_13.png" alt="7.2.13 Abstract Relational Comparison">
+      </div>
+      <pre class="pre_code"><code class="language-js">
+        x > y
+        x = 0, y = null
+      </code></pre>
+      <p>
+        В пунктах 1 и 2 алгоритм преобразует левую (<b>0</b>) и правую (<b>null</b>) в примитивы,<br>
+        но при этом <b>0</b> и <b>null</b> остаются <b>0</b> и <b>null</b>:
+      </p>
+      <pre class="pre_code"><code class="language-js">
+        px = ToPimitive(x) = 0
+        py = ToPimitive(x) = null
+      </code></pre>
+      <p>в п.3 не заходим - так как тип px и тип py не являются строками (String)<br>
+      в п.4 попадаем в подпункты d. и e., где <b>px</b> и <b>py</b> преобразовываются:</p>
+      <pre class="pre_code"><code class="language-js">
+        nx = ToNumber(px) = 0
+        ny = ToNumber(px) = +0 // (positive zero)
+      </code></pre>
+      <p>
+        в итоге заходим в подпункт k. и сравниваем <b>nx</b> и <b>ny</b>:<br>
+        если <span class="language-js">&nbsp;nx < ny - true&nbsp;</span>, иначе <b>false</b>
+        <span class="language-js">&nbsp;0 < +0 - false&nbsp;</span>
+      </p>
+      <p>Следовательно:</p>
+      <pre class="pre_code"><code class="language-js">
+        0 > nul - false
+      </code></pre>
+
+      <p></p>
+      <p>Попробуем равенство:</p>
+      <pre class="pre_code"><code class="language-js">
+        console.log(`0 == null: ${0 == null}`);  // false
+      </code></pre>
+      <p>сранение <span class="language-js">&nbsp;0 == nul (null == 0)&nbsp;</span> в JS происходит по <b>Алгоритму сравнения абстрактного равенства</b></p>
+      (<a href="https://262.ecma-international.org/12.0/#sec-abstract-equality-comparison">7.2.14 Abstract Equality Comparison</a>)
+      <!-- 7.2.14 Abstract Equality Comparison -->
+      <div class="quote_ecma">
+        <p class="quote_ecma_p">7.2.14 Abstract Equality Comparison</p>
+        <img class="img_ecma" src="ecma_7_2_14.png" alt="7.2.14 Abstract Equality Comparison">
+      </div>
+
+      <p>
+        в п.1 не попадаем, т.к. <b>Type(x)</b> и <b>Type(y)</b> разные<br>
+        п.2-п.10 не заходим<br>
+        попадаем в п.11, так как наш <b>Type(x) - Number</b>, а <b>Type(y) - Object</b>,<br>
+        следовательно надо вернуть результат сравнения <span class="language-js">&nbsp;x == ToPrimitive(y)&nbsp;</span>, в нашем случае:
+      </p>
+      <pre class="pre_code"><code class="language-js">
+        y = null
+        py = ToPimitive(y) = null
+      </code></pre>
+      <p>при сравнении <span class="language-js">&nbsp;x == py&nbsp;</span> (0 и null) получаем <b>false</b></p>
+      <p>Следовательно:</p>
+      <pre class="pre_code"><code class="language-js">
+        0 == nul - false
+      </code></pre>
+
+      <p>Больше/меньше или равно:</p>
+      <pre class="pre_code"><code class="language-js">
+        console.log(`0 >= null: ${0 >= null}`);  // true
+        console.log(`0 <= null: ${0 <= null}`);  // true
+      </code></pre>
+      <p>
+        В случае с <span class="language-js">&nbsp;0 >= null&nbsp;</span>
+         JS производит проверку <span class="language-js">&nbsp;0 < null&nbsp;</span> - если false, то true<br>
+         то есть если <b>0 не меньше null</b> - значит <span class="language-js">&nbsp;0 >= null&nbsp;</span> <b>верно!</b>
+      </p>
+      <pre class="pre_code"><code class="language-js">
+        0 >= null  // true
+      </code></pre>
+
+
+
+      <!-- END task 7 -->
+
+      <hr>
+      <p>8. <b>*</b> С помощью рекурсии организовать функцию возведения числа в степень.<br>
+        Формат: <b>function power(val, pow)</b> , где <b>val</b> &ndash; заданное число, <b>pow</b> &ndash; степень.</p>
+      <p><u>Решение:</u></p>
+      <pre class="pre_code"><code class="language-js">
+        function power(val, pow) {
+            if (pow === 0) {
+                    return 1
+                }
+            if (pow === 1) {
+                    return val
+                }
+
+            if (pow > 0) {
+                return val * power(val, pow - 1)
+            }
+            else {
+                return  1 / val * power(val, pow + 1)
+            }
+        }
+
+        console.log(power(2, 3));
+        console.log(power(2, -3));
+      </code></pre>
+
+    </div>
+  </div>
+  <!-- JavaScript -->
+  <script type="text/javascript" src="script.js" async defer></script>
+</body>
+</html>

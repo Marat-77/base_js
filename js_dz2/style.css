@@ -1,0 +1,38 @@
+* {
+  /* margin: 0; */
+}
+p, .pre_code {
+  font-size: 18px;
+}
+.main {
+  max-width: 960px;
+  margin: 0 auto;
+}
+.right_header{
+  text-align: right;
+  text-decoration: underline;
+}
+.center_header {
+  text-align: center;
+}
+.pre_code, .language-js {
+  background-color: darkgrey;
+  color: greenyellow;
+}
+.pre_code {
+  max-width: 90%;
+  margin: 10px auto;
+  border-radius: 10px;
+}
+.quote_ecma_p {
+  margin-bottom: 5px;
+}
+.quote_ecma {
+  max-width: 90%;
+  margin: 0 auto;
+}
+.img_ecma {
+  max-width: 85%;
+  border: 1px solid;
+  border-radius: 10px;
+}
