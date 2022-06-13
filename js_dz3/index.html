@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Урок 3. Циклы, массивы, структуры данных</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="main">
+    <div class="task">
+      <h1 class="right_header">Базовый курс JavaScript</h1>
+      <h2 class="center_header">Урок 3. Циклы, массивы, структуры данных</h2>
+      <h3>Практическое задание</h3>
+      <p>1. С помощью цикла while вывести все простые числа в промежутке от 0 до 100.</p>
+      <p><u>Решение:</u></p>
+      <pre class="pre_code"><code class="language-js">
+        // функция для создания множества от min до max с шагом step:
+        function mySetRange(min, max, step) {
+          const setRange = new Set();
+          for (let i = min; i < max; setRange.add(i), i += step) {};
+          return setRange;
+        }
+
+        // функция "Решето Эратосфена"
+        function sieveEr(n) {
+          const result = [];
+          let sieve = mySetRange(2, n + 1, 1);
+
+          // цикл обхода множества
+          while (sieve.size > 0) {
+            let prime = Math.min(...sieve);
+            result.push(prime);
+            const sieve2 = mySetRange(prime, n + 1, prime);
+            sieve = new Set([...sieve].filter(x => !sieve2.has(x)));
+          };
+
+          return result;
+        };
+
+        console.log('Список простых чисел от 0 до 100:');
+        console.log(sieveEr(100).join(', '));
+        </code></pre>
+
+      <hr>
+      <p>
+        2. С этого урока начинаем работать с функционалом интернет-магазина.<br>
+        Предположим, есть сущность корзины.<br>
+        Нужно реализовать функционал подсчета стоимости корзины в зависимости от находящихся в ней товаров.
+      </p>
+      <p>
+        3. Товары в корзине хранятся в массиве. Задачи:<br>
+        a. Организовать такой массив для хранения товаров в корзине;<br>
+        b. Организовать функцию countBasketPrice, которая будет считать стоимость корзины.
+      </p>
+      <p><u>Решение:</u></p>
+      
+      <a href="./shop.html" target="_blank">см. "Расчет стоимости корзины"</a> (откроется в новой вкладке)
+      <p>a. Массив для хранения товаров в корзине:</p>
+      <pre class="pre_code"><code class="language-js">
+        const basket = [
+          [1001, "Ручка синяя", 23.10, "рубль", 2],
+          [1002, "Карандаш", 8.90, "рубль", 9],
+          [1003, "Линейка", 18.20, "рубль", 1],
+          [1004, "Тетрадь", 20.5, "рубль", 8],
+        ]
+        </code></pre>
+      <p>b. Функция countBasketPrice для расчета стоимости корзины</p>
+      <pre class="pre_code"><code class="language-js">
+        const basket = [
+          [1001, "Ручка синяя", 23.10, "рубль", 2],
+          [1002, "Карандаш", 8.90, "рубль", 9],
+          [1003, "Линейка", 18.20, "рубль", 1],
+          [1004, "Тетрадь", 20.5, "рубль", 8],
+        ]
+
+        const basket2 = [
+          [1003, "Линейка", 18.20, "рубль", 1],
+          [1004, "Тетрадь", 20.5, "рубль", 1],
+        ]
+
+        const countBasketPrice =(basket) => {
+          return basket.reduce( (count, value) => {
+            return count + value[2] * value[4];
+          }, 0);
+        }
+
+        console.log('Суммарная стоимость товаров первой корзины:');
+        console.log(countBasketPrice(basket));
+        console.log('Суммарная стоимость товаров второй корзины:');
+        console.log(countBasketPrice(basket2));
+        </code></pre>
+
+      <hr>
+      <p>
+        4. <b>*</b> Вывести с помощью цикла for числа от 0 до 9, не используя тело цикла.<br>
+        Выглядеть это должно так:
+      </p>
+      <pre class="pre_code"><code class="language-js">
+          for(...){// здесь пусто}
+        </code></pre>
+      <p>
+        <!--  -->
+      </p>
+      <p><u>Решение:</u></p>
+      <pre class="pre_code"><code class="language-js">
+          for (let i = 0; i < 10; console.log(i), i++) {}
+        </code></pre>
+      <p>
+        <!--  -->
+      </p>
+      <!-- <p><u>Решение:</u></p> -->
+      <hr>
+      <p>
+        <!--  -->
+        5. <b>*</b> Нарисовать пирамиду с 20 рядами с помощью console.log, как показано на рисунке:
+      </p>
+      <pre class="pre_code"><code class="language-js">
+          X
+          XX
+          XXX
+          XXXX
+        </code></pre>
+      <p><u>Решение:</u></p>
+      <pre class="pre_code"><code class="language-js">
+          for (let i = 'x'; i < 21; console.log(i), i += 'x') {}
+        </code></pre>
+      <p>
+        <!--  -->
+      </p>
+      <hr>
+
+    </div>
+  </div>
+  <!-- JavaScript -->
+  <script type="text/javascript" src="script.js" async defer></script>
+</body>
+</html>
