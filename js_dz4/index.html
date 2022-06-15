@@ -25,19 +25,19 @@
           numArr = [];
           for (let i of String(num)) {
             numArr.push(+i);
-          };
+          }
 
           if (num > 999 || num < 0) {
             console.log('Число должно быть от 0 до 999 (включительно)');
-            return {}
+            return {};
           }
 
           this.units = numArr[numArr.length - 1];
           switch (true) {
               case (numArr.length > 1):
-                  this.tens = numArr[numArr.length - 2]
+                  this.tens = numArr[numArr.length - 2];
               case (numArr.length > 2):
-                  this.hundreds = numArr[numArr.length - 3]
+                  this.hundreds = numArr[numArr.length - 3];
           }
         }
 
