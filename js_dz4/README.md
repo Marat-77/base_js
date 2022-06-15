@@ -14,11 +14,11 @@ function ObjectNum(num) {
   numArr = [];
   for (let i of String(num)) {
     numArr.push(+i);
-  };
+  }
 
   if (num > 999 || num < 0) {
     console.log('Число должно быть от 0 до 999 (включительно)');
-    return {}
+    return {};
   }
 
   this.units = numArr[numArr.length - 1];
@@ -87,7 +87,7 @@ class Basket {
       // product должен быть объектом класса Goods!
       this.productBasket.set(product, count)
       product.quantity -= count;
-    } else {console.log('не является товаром нашего магазина')};
+    } else {console.log('не является товаром нашего магазина')}
   }
   // Расчет общей стоимости корзины
   totalBasket() {
@@ -101,9 +101,11 @@ class Basket {
   infoBasket() {
     console.log('Информация о корзине:');
     console.log('user Id: ' + this.userId +
-    ' состав корзины: ' + this.productBasket);
+    '\nсостав корзины:');
+   const cb = (value, key) => console.log(`${key.name}, цена: ${key.price} ${key.currency} - ${value} шт.`);
+   this.productBasket.forEach(cb);
   }
-};
+}
 
 
 const product1 = new Goods(
