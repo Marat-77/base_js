@@ -43,7 +43,7 @@ class Basket {
       // product должен быть объектом класса Goods!
       this.productBasket.set(product, count)
       product.quantity -= count;
-    } else {console.log('не является товаром нашего магазина')};
+    } else {console.log('не является товаром нашего магазина')}
   }
   // Расчет общей стоимости корзины
   totalBasket() {
@@ -57,9 +57,11 @@ class Basket {
   infoBasket() {
     console.log('Информация о корзине:');
     console.log('user Id: ' + this.userId +
-    ' состав корзины: ' + this.productBasket);
+    '\nсостав корзины:');
+   const cb = (value, key) => console.log(`${key.name}, цена: ${key.price} ${key.currency} - ${value} шт.`);
+   this.productBasket.forEach(cb);
   }
-};
+}
 
 
 const product1 = new Goods(
