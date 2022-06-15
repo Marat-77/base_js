@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Урок 4. Объекты в JavaScript</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="main">
+    <div class="task">
+      <h1 class="right_header">Базовый курс JavaScript</h1>
+      <h2 class="center_header">Урок 4. Объекты в JavaScript</h2>
+      <h3>Практическое задание</h3>
+      <p>
+        1. Написать функцию, преобразующую число в объект.<br>
+        Передавая на вход число от 0 до 999, надо получить на выходе объект, в котором в соответствующих свойствах описаны единицы, десятки и сотни.<br>
+        Например, для числа 245 надо получить следующий объект: {‘единицы’: 5, ‘десятки’: 4, ‘сотни’: 2}.<br>
+        Если число превышает 999, необходимо выдать соответствующее сообщение с помощью console.log и вернуть пустой объект.
+      </p>
+      <p><u>Решение:</u></p>
+      <pre class="pre_code"><code class="language-js">
+        function ObjectNum(num) {
+          numArr = [];
+          for (let i of String(num)) {
+            numArr.push(+i);
+          }
+
+          if (num > 999 || num < 0) {
+            console.log('Число должно быть от 0 до 999 (включительно)');
+            return {};
+          }
+
+          this.units = numArr[numArr.length - 1];
+          switch (true) {
+              case (numArr.length > 1):
+                  this.tens = numArr[numArr.length - 2];
+              case (numArr.length > 2):
+                  this.hundreds = numArr[numArr.length - 3];
+          }
+        }
+
+        const number1 = new ObjectNum(456);
+
+        console.log(number1);
+        console.log('тип number1: ' + typeof(number1));
+        console.log('Единицы: ' + number1.units);
+        console.log('Десятки: ' + number1.tens);
+        console.log('Сотни: ' + number1.hundreds);
+
+        const number2 = new ObjectNum(1000);
+
+        console.log(number2);
+        console.log('тип number2: ' + typeof(number2));
+        </code></pre>
+
+      <hr>
+      <p>
+        2. Продолжить работу с интернет-магазином:<br>
+        a. В прошлом домашнем задании вы реализовали корзину на базе массивов. Какими объектами можно заменить их элементы?<br>
+        b. Реализуйте такие объекты.<br>
+        c. Перенести функционал подсчета корзины на объектно-ориентированную базу.
+      </p>
+
+      <p>
+        3. <b>*</b> Подумать над глобальными сущностями<br>
+        К примеру, сущность «Продукт» в интернет-магазине актуальна не только для корзины, но и для каталога.<br>
+        Стремиться нужно к тому, чтобы объект «Продукт» имел единую структуру для различных модулей сайта, но в разных местах давал возможность вызывать разные методы.
+      </p>
+      <p><u>Решение:</u></p>
+
+      <a href="./shop.html" target="_blank">см. "Функционал корзины на ООП"</a> (откроется в новой вкладке)
+
+      <p>
+      </p>
+      <hr>
+
+    </div>
+  </div>
+  <!-- JavaScript -->
+  <script type="text/javascript" src="script.js" async defer></script>
+</body>
+</html>
