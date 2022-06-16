@@ -74,7 +74,7 @@ const product1 = new Goods(
   'Ручка синяя',
   'Отличная ручка! Она может писать!',
   100,
-  './img/pen_mini.jpg/'
+  './img/pen_mini.jpg'
 );
 
 const product2 = new Goods(
@@ -83,7 +83,7 @@ const product2 = new Goods(
   'Карандаш',
   'Отличный карандаш! Карандашом можно рисовать!',
   100,
-  './img/pencil_mini.jpg/'
+  './img/pencil_mini.jpg'
 );
 
 const product3 = new Goods(
@@ -92,7 +92,7 @@ const product3 = new Goods(
   'Линейка',
   'Отличная линейка! Линейкой можно измерять!',
   100,
-  './img/ruler_mini.jpg/'
+  './img/ruler_mini.jpg'
 );
 
 const product4 = new Goods(
@@ -101,7 +101,7 @@ const product4 = new Goods(
   'Тетрадь',
   'Отличная тетрадь! В тетради можно писать!',
   100,
-  './img/copybook_mini.jpg/'
+  './img/copybook_mini.jpg'
 );
 
 // список товаров:
