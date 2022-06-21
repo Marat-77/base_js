@@ -113,7 +113,7 @@ productList.push(product4);
 // TODO добавить в будущюю функцию добавления товара
 
 const btnRunMyShop = document.getElementById("button_ishop_id");
-btnRunMyShop.addEventListener('click', (event) => {
+btnRunMyShop.addEventListener('click', () => {
   structureBasket.runBasket();
   catalogGoods.runGoods();
 })
@@ -227,8 +227,7 @@ const catalogGoods = {
       divProductCard.append(divProductCardInfo);
       // Заголовок - название товара
       const hProductCardHead = document.createElement('h1');
-      const stringProd = `${prod.id}`;
-      hProductCardHead.id = stringProd;
+      hProductCardHead.id = `${prod.id}`;
       hProductCardHead.classList.add('product_card_header');
       // вставка текста с названием товара:
       hProductCardHead.textContent = `${prod.name}`;
