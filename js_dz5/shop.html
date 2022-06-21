@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Урок 5. Введение в DOM. Каталог и корзина</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="catalog"></div>
+
+  <div class="main">
+    <div class="task">
+      <h1 class="right_header">Базовый курс JavaScript</h1>
+      <h2>Урок 5. Введение в DOM. Каталог и корзина</h2>
+      <h2 class="center_header">Введение в DOM. Каталог и корзина</h2>
+      <h3>Практическое задание</h3>
+      <p>
+        2. Сделать генерацию корзины динамической: верстка корзины не должна находиться в HTML-структуре.<br>
+        Там должен быть только div, в который будет вставляться корзина, сгенерированная на базе JS:<br>
+        a. Пустая корзина должна выводить строку «Корзина пуста»;<br>
+        b. Наполненная должна выводить «В корзине: n товаров на сумму m рублей».
+      </p>
+
+      <p>
+        3. <b>*</b> Сделать так, чтобы товары в каталоге выводились при помощи JS:<br>
+        a. Создать массив товаров (сущность Product);<br>
+        b. При загрузке страницы на базе данного массива генерировать вывод из него.<br>
+        HTML-код должен содержать только div id=”catalog” без вложенного кода.<br>
+        Весь вид каталога генерируется JS.
+      </p>
+
+      <p><u>Решение:</u></p>
+      <div class="wrap">
+        <button id="button_ishop_id" class="ishop_btn" type="button" name="button_ishop">Интернет-магазин</button>
+      </div>
+
+      <!-- <pre class="pre_code"><code class="language-js">
+        mycode
+        </code></pre> -->
+
+      <p></p>
+      <hr>
+
+    </div>
+  </div>
+  <!-- ===================================================================== -->
+  <!-- JavaScript -->
+  <script type="text/javascript" src="shop.js"></script>
+</body>
+</html>
