@@ -108,7 +108,7 @@ class Basket {
   }
   sumCountBasket() {
     this.sum = 0;
-    for (let [key, value] of this.productBasket) {
+    for (let value of this.productBasket.values()) {
       this.sum += value;
     }
     return this.sum;
@@ -360,7 +360,7 @@ const structureBasket = {
   },
 
   // renderDeliveryAddress
-  renderDeliveryAddress(addRenderButtonFurther = true) {
+  renderDeliveryAddress() {
     this.divBasket.innerHTML = '';
 
     this.divDeliveryAddress = document.createElement('div');
