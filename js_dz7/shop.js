@@ -107,11 +107,9 @@ class Basket {
     return this.total;
   }
   sumCountBasket() {
-    this.sum = 0;
-    for (let value of this.productBasket.values()) {
-      this.sum += value;
-    }
-    return this.sum;
+    const productBasketArray = Array.from(this.productBasket.values());
+    const sumCount = productBasketArray.reduce( (prev, item) => prev + item, 0);
+    return sumCount;
   }
   // Информация о корзине:
   infoBasket() {
